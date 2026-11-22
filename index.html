@@ -50,6 +50,12 @@ select{font:inherit;padding:8px;border:1px solid var(--bd);border-radius:10px;ba
     <button id="stop" class="sec">■ Stop</button>
     <label class="note"><input type="checkbox" id="loop" style="margin:0 4px 0 0">Loop</label>
   </div>
+  <div class="row" style="margin-top:10px"><span class="note">Say:</span>
+    <label class="note"><input type="checkbox" id="sFr" checked> French</label>
+    <label class="note"><input type="checkbox" id="sBn"> বাংলা</label>
+    <label class="note"><input type="checkbox" id="sEn"> English</label>
+  </div>
+  <p class="note" id="vNote" style="margin:6px 0 0" hidden></p>
   <p class="note" id="status" style="margin:8px 0 0">Items with your own recording or an audio file keep playing when the phone is locked. Synthesized voice usually needs the screen on.</p>
 </div>
 
@@ -156,11 +162,25 @@ function silentWav(ms){const n=8*ms,b=new Uint8Array(44+n),v=new DataView(b.buff
   w(0,'RIFF');v.setUint32(4,36+n,true);w(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,8000,true);v.setUint32(28,8000,true);v.setUint16(32,1,true);v.setUint16(34,8,true);w(36,'data');v.setUint32(40,n,true);b.fill(128,44);
   return URL.createObjectURL(new Blob([b],{type:'audio/wav'}))}
 const GAP=silentWav(900);
-function speak(t){return new Promise(res=>{if(!('speechSynthesis' in window))return res();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.85;const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith('fr'));if(v)u.voice=v;u.onend=u.onerror=()=>res();speechSynthesis.speak(u)})}
+function speak(t,lang='fr-FR'){return new Promise(res=>{
+  if(!('speechSynthesis' in window))return res();
+  const p=lang.slice(0,2);if(p!=='fr'&&!hasVoice(p))return res();
+  const u=new SpeechSynthesisUtterance(String(t).replace(/\s*\/\s*/g,', '));u.lang=lang;u.rate=p==='fr'?.85:.95;
+  const vs=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().replace('_','-').startsWith(p));
+  const v=vs.find(v=>v.lang.toLowerCase().replace('_','-')===lang.toLowerCase())||vs[0];if(v)u.voice=v;
+  u.onend=u.onerror=()=>res();speechSynthesis.speak(u)})}
+function hasVoice(p){const v=speechSynthesis.getVoices();return !v.length||v.some(x=>x.lang&&x.lang.toLowerCase().replace('_','-').startsWith(p))}
+function voiceNote(){const n=$('vNote');const miss=$('sBn').checked&&'speechSynthesis' in window&&!hasVoice('bn');n.hidden=!miss;if(miss)n.textContent='No Bangla voice found on this phone, so Bangla will be skipped. Android: Settings > Text-to-speech > Google > Install voice data > Bangla.'}
+['sFr','sBn','sEn'].forEach(k=>{try{const v=localStorage.getItem('fr-'+k);if(v!==null)$(k).checked=v==='1'}catch(e){}$(k).onchange=()=>{try{localStorage.setItem('fr-'+k,$(k).checked?'1':'0')}catch(e){}voiceNote()}});
 function playSrc(s){return new Promise(res=>{aud.src=s;aud.onended=aud.onerror=()=>res();aud.play().catch(()=>res())})}
 function meta(it){if('mediaSession' in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:it.fr,artist:it.en||'Français A1',album:'Mon Français A1',artwork:[{src:'icons/icon-512.png',sizes:'512x512',type:'image/png'}]})}catch(e){}}}
-async function playOne(it){meta(it);const b=recs[it.id];
-  if(b){const u=URL.createObjectURL(b);await playSrc(u);URL.revokeObjectURL(u)}else if(it.audio)await playSrc(it.audio);else await speak(it.fr)}
+async function playOne(it){
+  meta(it);const my=runId;
+  const fr=$('sFr').checked||!($('sBn').checked||$('sEn').checked);
+  if(fr){const b=recs[it.id];if(b){const u=URL.createObjectURL(b);await playSrc(u);URL.revokeObjectURL(u)}else if(it.audio)await playSrc(it.audio);else await speak(it.fr)}
+  if($('sBn').checked&&it.bn&&my===runId)await speak(it.bn,'bn-BD');
+  if($('sEn').checked&&it.en&&my===runId)await speak(it.en,'en-US');
+}
 function stopAll(){runId++;try{speechSynthesis.cancel()}catch(e){}aud.pause();aud.dispatchEvent(new Event('ended'))}
 async function run(list){
   stopAll();const my=++runId;
@@ -262,7 +282,8 @@ $('impf').onchange=async()=>{
   $('impf').value='';
 };
 try{const t=localStorage.getItem('fr-lastbk');if(t)$('bk').textContent='Last backup: '+new Date(+t).toLocaleDateString()+'. Tip: back up once a week.'}catch(e){}
-if('speechSynthesis' in window)speechSynthesis.getVoices();
+if('speechSynthesis' in window){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=voiceNote}
+voiceNote();
 load();
 </script>
 </body>

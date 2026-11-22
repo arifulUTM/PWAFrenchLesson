@@ -49,3 +49,8 @@ FILES
   Lessons tab shows a filter once you have more than 10 lessons: choose Group size (10/20/50)
   and then Show: All, Lessons 1-20, Lessons 21-40 ... Play all plays only the group you picked.
   Your choice is remembered.
+
+7) SAY BANGLA / ENGLISH MEANING
+  Tick 'Say: French / বাংলা / English' above the play buttons. Order: French, then Bangla, then English.
+  Uses the phone's voices. Bangla needs a Bangla voice installed on the phone (Android: Settings >
+  Text-to-speech > Google > Install voice data > Bangla). Spoken meanings usually stop when the screen locks.
