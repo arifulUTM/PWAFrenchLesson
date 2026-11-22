@@ -1,0 +1,976 @@
+
+{
+  "id": 2,
+  "title": "Lesson 2 – Everyday French Vocabulary",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "fr": "Oui",
+      "ipa": "/wi/",
+      "bnph": "উই",
+      "enph": "WEE",
+      "bn": "হ্যাঁ",
+      "en": "Yes"
+    },
+    {
+      "fr": "Non",
+      "ipa": "/nɔ̃/",
+      "bnph": "নঁ",
+      "enph": "NOHN",
+      "bn": "না",
+      "en": "No"
+    },
+    {
+      "fr": "Peut-être",
+      "ipa": "/pø.tɛtʁ/",
+      "bnph": "প্যুতেত্র",
+      "enph": "puh-TETR",
+      "bn": "হয়তো",
+      "en": "Maybe"
+    },
+    {
+      "fr": "D'accord",
+      "ipa": "/da.kɔʁ/",
+      "bnph": "দাকোর",
+      "enph": "dah-KOR",
+      "bn": "ঠিক আছে",
+      "en": "Okay / Agreed"
+    },
+    {
+      "fr": "Bien sûr",
+      "ipa": "/bjɛ̃ syʁ/",
+      "bnph": "ব্যাঁ সুর",
+      "enph": "byan SOOR",
+      "bn": "অবশ্যই",
+      "en": "Of course"
+    },
+    {
+      "fr": "Pourquoi",
+      "ipa": "/puʁ.kwa/",
+      "bnph": "পূরকোয়া",
+      "enph": "poor-KWAH",
+      "bn": "কেন",
+      "en": "Why"
+    },
+    {
+      "fr": "Parce que",
+      "ipa": "/paʁs kə/",
+      "bnph": "পার্স ক",
+      "enph": "pars kuh",
+      "bn": "কারণ",
+      "en": "Because"
+    },
+    {
+      "fr": "Quand",
+      "ipa": "/kɑ̃/",
+      "bnph": "কঁ",
+      "enph": "KAHN",
+      "bn": "কখন",
+      "en": "When"
+    },
+    {
+      "fr": "Où",
+      "ipa": "/u/",
+      "bnph": "উ",
+      "enph": "OO",
+      "bn": "কোথায়",
+      "en": "Where"
+    },
+    {
+      "fr": "Comment",
+      "ipa": "/kɔ.mɑ̃/",
+      "bnph": "কমঁ",
+      "enph": "koh-MOHN",
+      "bn": "কীভাবে",
+      "en": "How"
+    },
+    {
+      "fr": "Qui",
+      "ipa": "/ki/",
+      "bnph": "কি",
+      "enph": "KEE",
+      "bn": "কে",
+      "en": "Who"
+    },
+    {
+      "fr": "Quoi",
+      "ipa": "/kwa/",
+      "bnph": "কোয়া",
+      "enph": "KWAH",
+      "bn": "কী",
+      "en": "What"
+    },
+    {
+      "fr": "Combien",
+      "ipa": "/kɔ̃.bjɛ̃/",
+      "bnph": "কোঁব্যাঁ",
+      "enph": "kohm-BYAN",
+      "bn": "কত",
+      "en": "How much / How many"
+    },
+    {
+      "fr": "Aujourd'hui",
+      "ipa": "/o.ʒuʁ.dɥi/",
+      "bnph": "ওজুরদুই",
+      "enph": "oh-zhoor-DWEE",
+      "bn": "আজ",
+      "en": "Today"
+    },
+    {
+      "fr": "Demain",
+      "ipa": "/də.mɛ̃/",
+      "bnph": "দ্য-ম্যাঁ",
+      "enph": "duh-MAN",
+      "bn": "আগামীকাল",
+      "en": "Tomorrow"
+    },
+    {
+      "fr": "Hier",
+      "ipa": "/jɛʁ/",
+      "bnph": "ইয়ের",
+      "enph": "YER",
+      "bn": "গতকাল",
+      "en": "Yesterday"
+    },
+    {
+      "fr": "Maintenant",
+      "ipa": "/mɛ̃t.nɑ̃/",
+      "bnph": "ম্যাঁতনঁ",
+      "enph": "man-tuh-NAHN",
+      "bn": "এখন",
+      "en": "Now"
+    },
+    {
+      "fr": "Plus tard",
+      "ipa": "/ply taʁ/",
+      "bnph": "প্লু তার",
+      "enph": "ploo TAR",
+      "bn": "পরে",
+      "en": "Later"
+    },
+    {
+      "fr": "Toujours",
+      "ipa": "/tu.ʒuʁ/",
+      "bnph": "তুজুর",
+      "enph": "too-ZHOOR",
+      "bn": "সবসময়",
+      "en": "Always"
+    },
+    {
+      "fr": "Jamais",
+      "ipa": "/ʒa.mɛ/",
+      "bnph": "জামে",
+      "enph": "zhah-MAY",
+      "bn": "কখনোই না",
+      "en": "Never"
+    },
+    {
+      "fr": "Souvent",
+      "ipa": "/su.vɑ̃/",
+      "bnph": "সুভঁ",
+      "enph": "soo-VAHN",
+      "bn": "প্রায়ই",
+      "en": "Often"
+    },
+    {
+      "fr": "Parfois",
+      "ipa": "/paʁ.fwa/",
+      "bnph": "পারফোয়া",
+      "enph": "par-FWAH",
+      "bn": "মাঝে মাঝে",
+      "en": "Sometimes"
+    },
+    {
+      "fr": "Le matin",
+      "ipa": "/lə ma.tɛ̃/",
+      "bnph": "ল্য মাত্যাঁ",
+      "enph": "luh mah-TAN",
+      "bn": "সকাল",
+      "en": "Morning"
+    },
+    {
+      "fr": "L'après-midi",
+      "ipa": "/la.pʁɛ.mi.di/",
+      "bnph": "লাপ্রেমিদি",
+      "enph": "lah-preh-mee-DEE",
+      "bn": "বিকেল",
+      "en": "Afternoon"
+    },
+    {
+      "fr": "Le soir",
+      "ipa": "/lə swaʁ/",
+      "bnph": "ল্য সোয়ার",
+      "enph": "luh SWAR",
+      "bn": "সন্ধ্যা",
+      "en": "Evening"
+    },
+    {
+      "fr": "La nuit",
+      "ipa": "/la nɥi/",
+      "bnph": "লা নুই",
+      "enph": "lah NWEE",
+      "bn": "রাত",
+      "en": "Night"
+    },
+    {
+      "fr": "La maison",
+      "ipa": "/la mɛ.zɔ̃/",
+      "bnph": "লা মেজঁ",
+      "enph": "lah meh-ZOHN",
+      "bn": "বাড়ি",
+      "en": "House"
+    },
+    {
+      "fr": "La chambre",
+      "ipa": "/la ʃɑ̃bʁ/",
+      "bnph": "লা শঁব্র",
+      "enph": "lah SHAHMBR",
+      "bn": "শোবার ঘর",
+      "en": "Bedroom"
+    },
+    {
+      "fr": "La cuisine",
+      "ipa": "/la kɥi.zin/",
+      "bnph": "লা কুইজিন",
+      "enph": "lah kwee-ZEEN",
+      "bn": "রান্নাঘর",
+      "en": "Kitchen"
+    },
+    {
+      "fr": "La salle de bain",
+      "ipa": "/la sal də bɛ̃/",
+      "bnph": "লা সাল দ্য ব্যাঁ",
+      "enph": "lah sal duh BAN",
+      "bn": "গোসলখানা",
+      "en": "Bathroom"
+    },
+    {
+      "fr": "La porte",
+      "ipa": "/la pɔʁt/",
+      "bnph": "লা পোর্ত",
+      "enph": "lah PORT",
+      "bn": "দরজা",
+      "en": "Door"
+    },
+    {
+      "fr": "La fenêtre",
+      "ipa": "/la fə.nɛtʁ/",
+      "bnph": "লা ফ্যনেত্র",
+      "enph": "lah fuh-NETR",
+      "bn": "জানালা",
+      "en": "Window"
+    },
+    {
+      "fr": "La table",
+      "ipa": "/la tabl/",
+      "bnph": "লা তাব্ল",
+      "enph": "lah TABL",
+      "bn": "টেবিল",
+      "en": "Table"
+    },
+    {
+      "fr": "La chaise",
+      "ipa": "/la ʃɛz/",
+      "bnph": "লা শেজ",
+      "enph": "lah SHEZ",
+      "bn": "চেয়ার",
+      "en": "Chair"
+    },
+    {
+      "fr": "Le lit",
+      "ipa": "/lə li/",
+      "bnph": "ল্য লি",
+      "enph": "luh LEE",
+      "bn": "বিছানা",
+      "en": "Bed"
+    },
+    {
+      "fr": "Le téléphone",
+      "ipa": "/lə te.le.fɔn/",
+      "bnph": "ল্য তেলেফোন",
+      "enph": "luh tay-lay-FON",
+      "bn": "টেলিফোন",
+      "en": "Telephone"
+    },
+    {
+      "fr": "Le livre",
+      "ipa": "/lə livʁ/",
+      "bnph": "ল্য লিভ্র",
+      "enph": "luh LEEVR",
+      "bn": "বই",
+      "en": "Book"
+    },
+    {
+      "fr": "Le stylo",
+      "ipa": "/lə sti.lo/",
+      "bnph": "ল্য স্তিলো",
+      "enph": "luh stee-LOH",
+      "bn": "কলম",
+      "en": "Pen"
+    },
+    {
+      "fr": "Le sac",
+      "ipa": "/lə sak/",
+      "bnph": "ল্য সাক",
+      "enph": "luh SAK",
+      "bn": "ব্যাগ",
+      "en": "Bag"
+    },
+    {
+      "fr": "La clé",
+      "ipa": "/la kle/",
+      "bnph": "লা ক্লে",
+      "enph": "lah KLAY",
+      "bn": "চাবি",
+      "en": "Key"
+    },
+    {
+      "fr": "L'eau",
+      "ipa": "/lo/",
+      "bnph": "লো",
+      "enph": "LOH",
+      "bn": "পানি",
+      "en": "Water"
+    },
+    {
+      "fr": "Le pain",
+      "ipa": "/lə pɛ̃/",
+      "bnph": "ল্য প্যাঁ",
+      "enph": "luh PAN",
+      "bn": "রুটি",
+      "en": "Bread"
+    },
+    {
+      "fr": "Le lait",
+      "ipa": "/lə lɛ/",
+      "bnph": "ল্য লে",
+      "enph": "luh LAY",
+      "bn": "দুধ",
+      "en": "Milk"
+    },
+    {
+      "fr": "Le café",
+      "ipa": "/lə ka.fe/",
+      "bnph": "ল্য কাফে",
+      "enph": "luh kah-FAY",
+      "bn": "কফি",
+      "en": "Coffee"
+    },
+    {
+      "fr": "Le thé",
+      "ipa": "/lə te/",
+      "bnph": "ল্য তে",
+      "enph": "luh TAY",
+      "bn": "চা",
+      "en": "Tea"
+    },
+    {
+      "fr": "Le sucre",
+      "ipa": "/lə sykʁ/",
+      "bnph": "ল্য স্যুক্র",
+      "enph": "luh SOOKR",
+      "bn": "চিনি",
+      "en": "Sugar"
+    },
+    {
+      "fr": "Le sel",
+      "ipa": "/lə sɛl/",
+      "bnph": "ল্য সেল",
+      "enph": "luh SEL",
+      "bn": "লবণ",
+      "en": "Salt"
+    },
+    {
+      "fr": "Le riz",
+      "ipa": "/lə ʁi/",
+      "bnph": "ল্য রি",
+      "enph": "luh REE",
+      "bn": "ভাত / চাল",
+      "en": "Rice"
+    },
+    {
+      "fr": "La viande",
+      "ipa": "/la vjɑ̃d/",
+      "bnph": "লা ভিয়াঁদ",
+      "enph": "lah VYAHND",
+      "bn": "মাংস",
+      "en": "Meat"
+    },
+    {
+      "fr": "Le poisson",
+      "ipa": "/lə pwa.sɔ̃/",
+      "bnph": "ল্য পোয়াসঁ",
+      "enph": "luh pwah-SON",
+      "bn": "মাছ",
+      "en": "Fish"
+    },
+    {
+      "fr": "Le poulet",
+      "ipa": "/lə pu.lɛ/",
+      "bnph": "ল্য পুলে",
+      "enph": "luh poo-LAY",
+      "bn": "মুরগির মাংস",
+      "en": "Chicken"
+    },
+    {
+      "fr": "L'œuf",
+      "ipa": "/lœf/",
+      "bnph": "ল্যফ",
+      "enph": "LUHF",
+      "bn": "ডিম",
+      "en": "Egg"
+    },
+    {
+      "fr": "Le fromage",
+      "ipa": "/lə fʁɔ.maʒ/",
+      "bnph": "ল্য ফ্রোমাজ",
+      "enph": "luh froh-MAHZH",
+      "bn": "পনির / চিজ",
+      "en": "Cheese"
+    },
+    {
+      "fr": "La pomme",
+      "ipa": "/la pɔm/",
+      "bnph": "লা পম",
+      "enph": "lah POM",
+      "bn": "আপেল",
+      "en": "Apple"
+    },
+    {
+      "fr": "La banane",
+      "ipa": "/la ba.nan/",
+      "bnph": "লা বানান",
+      "enph": "lah bah-NAN",
+      "bn": "কলা",
+      "en": "Banana"
+    },
+    {
+      "fr": "L'orange",
+      "ipa": "/lɔ.ʁɑ̃ʒ/",
+      "bnph": "লোরঁজ",
+      "enph": "loh-RAHNZH",
+      "bn": "কমলা",
+      "en": "Orange"
+    },
+    {
+      "fr": "La tomate",
+      "ipa": "/la tɔ.mat/",
+      "bnph": "লা তোমাত",
+      "enph": "lah toh-MAT",
+      "bn": "টমেটো",
+      "en": "Tomato"
+    },
+    {
+      "fr": "La pomme de terre",
+      "ipa": "/la pɔm də tɛʁ/",
+      "bnph": "লা পম দ্য তের",
+      "enph": "lah pom duh TER",
+      "bn": "আলু",
+      "en": "Potato"
+    },
+    {
+      "fr": "Le légume",
+      "ipa": "/lə le.ɡym/",
+      "bnph": "ল্য লেগুম",
+      "enph": "luh lay-GOOM",
+      "bn": "সবজি",
+      "en": "Vegetable"
+    },
+    {
+      "fr": "Le fruit",
+      "ipa": "/lə fʁɥi/",
+      "bnph": "ল্য ফ্রুই",
+      "enph": "luh FRWEE",
+      "bn": "ফল",
+      "en": "Fruit"
+    },
+    {
+      "fr": "Le petit-déjeuner",
+      "ipa": "/lə pə.ti de.ʒø.ne/",
+      "bnph": "ল্য পতি দেজনে",
+      "enph": "luh puh-tee day-zhuh-NAY",
+      "bn": "সকালের নাশতা",
+      "en": "Breakfast"
+    },
+    {
+      "fr": "Le déjeuner",
+      "ipa": "/lə de.ʒø.ne/",
+      "bnph": "ল্য দেজনে",
+      "enph": "luh day-zhuh-NAY",
+      "bn": "দুপুরের খাবার",
+      "en": "Lunch"
+    },
+    {
+      "fr": "Le dîner",
+      "ipa": "/lə di.ne/",
+      "bnph": "ল্য দিনে",
+      "enph": "luh dee-NAY",
+      "bn": "রাতের খাবার",
+      "en": "Dinner"
+    },
+    {
+      "fr": "Manger",
+      "ipa": "/mɑ̃.ʒe/",
+      "bnph": "মঁজে",
+      "enph": "mahn-ZHAY",
+      "bn": "খাওয়া",
+      "en": "To eat"
+    },
+    {
+      "fr": "Boire",
+      "ipa": "/bwaʁ/",
+      "bnph": "বোয়ার",
+      "enph": "BWAR",
+      "bn": "পান করা",
+      "en": "To drink"
+    },
+    {
+      "fr": "Dormir",
+      "ipa": "/dɔʁ.miʁ/",
+      "bnph": "দোরমির",
+      "enph": "dor-MEER",
+      "bn": "ঘুমানো",
+      "en": "To sleep"
+    },
+    {
+      "fr": "Parler",
+      "ipa": "/paʁ.le/",
+      "bnph": "পারলে",
+      "enph": "par-LAY",
+      "bn": "কথা বলা",
+      "en": "To speak"
+    },
+    {
+      "fr": "Écouter",
+      "ipa": "/e.ku.te/",
+      "bnph": "একুতে",
+      "enph": "ay-koo-TAY",
+      "bn": "শোনা",
+      "en": "To listen"
+    },
+    {
+      "fr": "Regarder",
+      "ipa": "/ʁə.ɡaʁ.de/",
+      "bnph": "র্যগার্দে",
+      "enph": "ruh-gar-DAY",
+      "bn": "দেখা",
+      "en": "To watch / look"
+    },
+    {
+      "fr": "Lire",
+      "ipa": "/liʁ/",
+      "bnph": "লির",
+      "enph": "LEER",
+      "bn": "পড়া",
+      "en": "To read"
+    },
+    {
+      "fr": "Écrire",
+      "ipa": "/e.kʁiʁ/",
+      "bnph": "একৃর",
+      "enph": "ay-KREER",
+      "bn": "লেখা",
+      "en": "To write"
+    },
+    {
+      "fr": "Travailler",
+      "ipa": "/tʁa.va.je/",
+      "bnph": "ত্রাভায়ে",
+      "enph": "trah-vah-YAY",
+      "bn": "কাজ করা",
+      "en": "To work"
+    },
+    {
+      "fr": "Étudier",
+      "ipa": "/e.ty.dje/",
+      "bnph": "এত্যুদিয়ে",
+      "enph": "ay-too-DYAY",
+      "bn": "পড়াশোনা করা",
+      "en": "To study"
+    },
+    {
+      "fr": "Apprendre",
+      "ipa": "/a.pʁɑ̃dʁ/",
+      "bnph": "আপ্প্রঁদ্র",
+      "enph": "ah-PRAHNDR",
+      "bn": "শেখা",
+      "en": "To learn"
+    },
+    {
+      "fr": "Comprendre",
+      "ipa": "/kɔ̃.pʁɑ̃dʁ/",
+      "bnph": "কোঁপ্রঁদ্র",
+      "enph": "kohm-PRAHNDR",
+      "bn": "বোঝা",
+      "en": "To understand"
+    },
+    {
+      "fr": "Aimer",
+      "ipa": "/e.me/",
+      "bnph": "এমে",
+      "enph": "ay-MAY",
+      "bn": "ভালোবাসা / পছন্দ করা",
+      "en": "To love / like"
+    },
+    {
+      "fr": "Vouloir",
+      "ipa": "/vu.lwaʁ/",
+      "bnph": "ভুলুয়ার",
+      "enph": "voo-LWAR",
+      "bn": "চাওয়া",
+      "en": "To want"
+    },
+    {
+      "fr": "Pouvoir",
+      "ipa": "/pu.vwaʁ/",
+      "bnph": "পুভোয়ার",
+      "enph": "poo-VWAR",
+      "bn": "পারা",
+      "en": "To be able to"
+    },
+    {
+      "fr": "Devoir",
+      "ipa": "/də.vwaʁ/",
+      "bnph": "দ্যভোয়ার",
+      "enph": "duh-VWAR",
+      "bn": "করতে হওয়া",
+      "en": "Must / have to"
+    },
+    {
+      "fr": "Aller",
+      "ipa": "/a.le/",
+      "bnph": "আলে",
+      "enph": "ah-LAY",
+      "bn": "যাওয়া",
+      "en": "To go"
+    },
+    {
+      "fr": "Venir",
+      "ipa": "/və.niʁ/",
+      "bnph": "ভনির",
+      "enph": "vuh-NEER",
+      "bn": "আসা",
+      "en": "To come"
+    },
+    {
+      "fr": "Partir",
+      "ipa": "/paʁ.tiʁ/",
+      "bnph": "পারতির",
+      "enph": "par-TEER",
+      "bn": "চলে যাওয়া",
+      "en": "To leave"
+    },
+    {
+      "fr": "Arriver",
+      "ipa": "/a.ʁi.ve/",
+      "bnph": "আরিভে",
+      "enph": "ah-ree-VAY",
+      "bn": "পৌঁছানো",
+      "en": "To arrive"
+    },
+    {
+      "fr": "Acheter",
+      "ipa": "/aʃ.te/",
+      "bnph": "আশতে",
+      "enph": "ahsh-TAY",
+      "bn": "কেনা",
+      "en": "To buy"
+    },
+    {
+      "fr": "Vendre",
+      "ipa": "/vɑ̃dʁ/",
+      "bnph": "ভঁদ্র",
+      "enph": "VAHNDR",
+      "bn": "বিক্রি করা",
+      "en": "To sell"
+    },
+    {
+      "fr": "Payer",
+      "ipa": "/pe.je/",
+      "bnph": "পেয়্যে",
+      "enph": "pay-YAY",
+      "bn": "টাকা দেওয়া",
+      "en": "To pay"
+    },
+    {
+      "fr": "Ouvrir",
+      "ipa": "/u.vʁiʁ/",
+      "bnph": "উভ্রির",
+      "enph": "oo-VREER",
+      "bn": "খোলা",
+      "en": "To open"
+    },
+    {
+      "fr": "Fermer",
+      "ipa": "/fɛʁ.me/",
+      "bnph": "ফেরমে",
+      "enph": "fair-MAY",
+      "bn": "বন্ধ করা",
+      "en": "To close"
+    },
+    {
+      "fr": "Attendre",
+      "ipa": "/a.tɑ̃dʁ/",
+      "bnph": "আতঁদ্র",
+      "enph": "ah-TAHNDR",
+      "bn": "অপেক্ষা করা",
+      "en": "To wait"
+    },
+    {
+      "fr": "Chercher",
+      "ipa": "/ʃɛʁ.ʃe/",
+      "bnph": "শেরশে",
+      "enph": "sher-SHAY",
+      "bn": "খোঁজা",
+      "en": "To search"
+    },
+    {
+      "fr": "Trouver",
+      "ipa": "/tʁu.ve/",
+      "bnph": "ত্রুভে",
+      "enph": "troo-VAY",
+      "bn": "খুঁজে পাওয়া",
+      "en": "To find"
+    },
+    {
+      "fr": "Donner",
+      "ipa": "/dɔ.ne/",
+      "bnph": "দোনে",
+      "enph": "doh-NAY",
+      "bn": "দেওয়া",
+      "en": "To give"
+    },
+    {
+      "fr": "Prendre",
+      "ipa": "/pʁɑ̃dʁ/",
+      "bnph": "প্রঁদ্র",
+      "enph": "PRAHNDR",
+      "bn": "নেওয়া",
+      "en": "To take"
+    },
+    {
+      "fr": "Faire",
+      "ipa": "/fɛʁ/",
+      "bnph": "ফের",
+      "enph": "FAIR",
+      "bn": "করা",
+      "en": "To do / make"
+    },
+    {
+      "fr": "Nettoyer",
+      "ipa": "/nɛ.twa.je/",
+      "bnph": "নেতোয়ায়ে",
+      "enph": "neh-twah-YAY",
+      "bn": "পরিষ্কার করা",
+      "en": "To clean"
+    },
+    {
+      "fr": "Laver",
+      "ipa": "/la.ve/",
+      "bnph": "লাভে",
+      "enph": "lah-VAY",
+      "bn": "ধোয়া",
+      "en": "To wash"
+    },
+    {
+      "fr": "Cuisiner",
+      "ipa": "/kɥi.zi.ne/",
+      "bnph": "কুইজিনে",
+      "enph": "kwee-zee-NAY",
+      "bn": "রান্না করা",
+      "en": "To cook"
+    },
+    {
+      "fr": "Heureux",
+      "ipa": "/ø.ʁø/",
+      "bnph": "অ্যর্য",
+      "enph": "uh-RUH",
+      "bn": "সুখী",
+      "en": "Happy"
+    },
+    {
+      "fr": "Triste",
+      "ipa": "/tʁist/",
+      "bnph": "ত্রিস্ত",
+      "enph": "TREEST",
+      "bn": "দুঃখিত",
+      "en": "Sad"
+    },
+    {
+      "fr": "Fatigué",
+      "ipa": "/fa.ti.ɡe/",
+      "bnph": "ফাতিগে",
+      "enph": "fah-tee-GAY",
+      "bn": "ক্লান্ত",
+      "en": "Tired"
+    },
+    {
+      "fr": "Malade",
+      "ipa": "/ma.lad/",
+      "bnph": "মালাদ",
+      "enph": "mah-LAD",
+      "bn": "অসুস্থ",
+      "en": "Sick"
+    },
+    {
+      "fr": "Content",
+      "ipa": "/kɔ̃.tɑ̃/",
+      "bnph": "কোঁতঁ",
+      "enph": "kohn-TAHN",
+      "bn": "খুশি / সন্তুষ্ট",
+      "en": "Happy / pleased"
+    },
+    {
+      "fr": "En colère",
+      "ipa": "/ɑ̃ kɔ.lɛʁ/",
+      "bnph": "অঁ কোলের",
+      "enph": "ahn koh-LAIR",
+      "bn": "রাগান্বিত",
+      "en": "Angry"
+    },
+    {
+      "fr": "Inquiet",
+      "ipa": "/ɛ̃.kjɛ/",
+      "bnph": "অ্যাঁকিয়ে",
+      "enph": "an-KYAY",
+      "bn": "উদ্বিগ্ন",
+      "en": "Worried"
+    },
+    {
+      "fr": "Calme",
+      "ipa": "/kalm/",
+      "bnph": "কাল্ম",
+      "enph": "KAHLM",
+      "bn": "শান্ত",
+      "en": "Calm"
+    },
+    {
+      "fr": "Facile",
+      "ipa": "/fa.sil/",
+      "bnph": "ফাসিল",
+      "enph": "fah-SEEL",
+      "bn": "সহজ",
+      "en": "Easy"
+    },
+    {
+      "fr": "Difficile",
+      "ipa": "/di.fi.sil/",
+      "bnph": "দিফিসিল",
+      "enph": "dee-fee-SEEL",
+      "bn": "কঠিন",
+      "en": "Difficult"
+    },
+    {
+      "fr": "Grand",
+      "ipa": "/ɡʁɑ̃/",
+      "bnph": "গ্রঁ",
+      "enph": "GRAHN",
+      "bn": "বড় / লম্বা",
+      "en": "Big / tall"
+    },
+    {
+      "fr": "Petit",
+      "ipa": "/pə.ti/",
+      "bnph": "পতি",
+      "enph": "puh-TEE",
+      "bn": "ছোট",
+      "en": "Small"
+    },
+    {
+      "fr": "Beau",
+      "ipa": "/bo/",
+      "bnph": "বো",
+      "enph": "BOH",
+      "bn": "সুন্দর",
+      "en": "Beautiful"
+    },
+    {
+      "fr": "Joli",
+      "ipa": "/ʒɔ.li/",
+      "bnph": "জোলি",
+      "enph": "zhoh-LEE",
+      "bn": "সুন্দর / মনোরম",
+      "en": "Pretty"
+    },
+    {
+      "fr": "Nouveau",
+      "ipa": "/nu.vo/",
+      "bnph": "নুভো",
+      "enph": "noo-VOH",
+      "bn": "নতুন",
+      "en": "New"
+    },
+    {
+      "fr": "Vieux",
+      "ipa": "/vjø/",
+      "bnph": "ভিয়্য",
+      "enph": "VYUH",
+      "bn": "পুরোনো / বৃদ্ধ",
+      "en": "Old"
+    },
+    {
+      "fr": "Bon",
+      "ipa": "/bɔ̃/",
+      "bnph": "বঁ",
+      "enph": "BOHN",
+      "bn": "ভালো",
+      "en": "Good"
+    },
+    {
+      "fr": "Mauvais",
+      "ipa": "/mo.vɛ/",
+      "bnph": "মোভে",
+      "enph": "moh-VAY",
+      "bn": "খারাপ",
+      "en": "Bad"
+    },
+    {
+      "fr": "Cher",
+      "ipa": "/ʃɛʁ/",
+      "bnph": "শের",
+      "enph": "SHER",
+      "bn": "দামি",
+      "en": "Expensive"
+    },
+    {
+      "fr": "Pas cher",
+      "ipa": "/pa ʃɛʁ/",
+      "bnph": "পা শের",
+      "enph": "pah SHER",
+      "bn": "সস্তা",
+      "en": "Cheap"
+    },
+    {
+      "fr": "Chaud",
+      "ipa": "/ʃo/",
+      "bnph": "শো",
+      "enph": "SHOH",
+      "bn": "গরম",
+      "en": "Hot"
+    },
+    {
+      "fr": "Froid",
+      "ipa": "/fʁwa/",
+      "bnph": "ফ্রোয়া",
+      "enph": "FRWAH",
+      "bn": "ঠান্ডা",
+      "en": "Cold"
+    },
+    {
+      "fr": "Rapide",
+      "ipa": "/ʁa.pid/",
+      "bnph": "রাপিদ",
+      "enph": "rah-PEED",
+      "bn": "দ্রুত",
+      "en": "Fast"
+    },
+    {
+      "fr": "Lent",
+      "ipa": "/lɑ̃/",
+      "bnph": "লঁ",
+      "enph": "LAHN",
+      "bn": "ধীর",
+      "en": "Slow"
+    }
+  ]
+}
