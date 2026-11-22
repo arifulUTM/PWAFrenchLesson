@@ -31,8 +31,12 @@ FILES
 
   After opening once online, each lesson is saved on the phone and works offline.
 
-3) IF YOU CHANGE index.html OR sw.js
-  Change  const C='fr-a1-v2'  to  'fr-a1-v3' in sw.js so phones pick up the update.
+3) UPDATES
+  While the app is open on screen it checks every 10 seconds for new lessons and a new index.html.
+  A new index.html reloads the page by itself, but never while audio plays, you record, or you type a note.
+  Everything is network-first: when you upload new files (lesson-N.json or a new index.html),
+  the app uses them the next time it opens online. Lessons also refresh when you come back to the app.
+  No version number to change.
 
 4) LOCK-SCREEN AUDIO
   Works for items with your own recording (tap the mic) or an "audio" file.

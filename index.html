@@ -99,17 +99,36 @@ async function del(st,id){if(!mem)try{await tx(st,'readwrite',s=>s.delete(id))}c
 async function load(){
   try{db=await openDB();notes=await tx('notes','readonly',s=>s.getAll())||[];(await tx('rec','readonly',s=>s.getAll())||[]).forEach(x=>recs[x.id]=x.blob)}catch(e){mem=true}
   render();
-  // auto-load data/lessons/lesson-1.json, lesson-2.json, lesson-3.json ... (stops after 3 missing numbers in a row)
+  await loadLessons();
+}
+
+// auto-load data/lessons/lesson-1.json, lesson-2.json, ... (stops after 3 missing numbers in a row)
+let sig='',pageSig=null;
+async function loadLessons(){
+  const got=[];
   for(let n=1,miss=0;miss<3&&n<=100;n++){
     try{
       const r=await fetch('data/lessons/lesson-'+n+'.json',{cache:'no-cache'});if(!r.ok)throw 0;
       const j=await r.json();
-      (j.lessons||[j]).forEach(l=>{if(l&&Array.isArray(l.items)){l.id=l.id||n;l.title=l.title||'Lesson '+l.id;l.items.forEach((it,i)=>{it.id=it.id||'L'+l.id+'-'+String(i+1).padStart(2,'0')});lessons.push(l)}});
-      lessons.sort((a,b)=>a.id-b.id);miss=0;render();
+      (j.lessons||[j]).forEach(l=>{if(l&&Array.isArray(l.items)){l.id=l.id||n;l.title=l.title||'Lesson '+l.id;l.items.forEach((it,i)=>{it.id=it.id||'L'+l.id+'-'+String(i+1).padStart(2,'0')});got.push(l)}});
+      miss=0;
     }catch(e){miss++}
   }
-  render();
+  if(got.length){got.sort((a,b)=>a.id-b.id);const s2=JSON.stringify(got);if(s2!==sig){sig=s2;lessons=got;if(!rec)render()}}
 }
+// pick up new lessons whenever the app comes back to the screen
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&!rec){loadLessons();checkPage()}});
+// if a newer index.html was uploaded, reload (only when nothing would be lost)
+async function checkPage(){
+  try{
+    const t=await (await fetch('index.html',{cache:'no-cache'})).text();let h=0;for(let i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;
+    if(pageSig===null)pageSig=h;
+    else if(pageSig!==h&&aud.paused&&!rec&&!pend&&!['fr','ipa','bnph','enph','bn','en'].some(k=>$(k).value))location.reload();
+  }catch(e){}
+}
+// every 10 seconds (while the app is on screen): check for new lessons and a new app version
+setInterval(()=>{if(document.visibilityState==='visible'&&!rec){loadLessons();checkPage()}},10000);
+checkPage();
 
 // ---------- recording
 async function toggleRec(done,state){
