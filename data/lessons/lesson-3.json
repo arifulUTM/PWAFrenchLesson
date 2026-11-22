@@ -1,0 +1,168 @@
+
+{
+  "id": 3,
+  "title": "Lesson 3 – French Numbers 1 to 20",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "fr": "Un",
+      "ipa": "/œ̃/",
+      "bnph": "আঁ",
+      "enph": "uhn",
+      "bn": "এক",
+      "en": "One"
+    },
+    {
+      "fr": "Deux",
+      "ipa": "/dø/",
+      "bnph": "দ্যু",
+      "enph": "duh",
+      "bn": "দুই",
+      "en": "Two"
+    },
+    {
+      "fr": "Trois",
+      "ipa": "/tʁwa/",
+      "bnph": "ত্রোয়া",
+      "enph": "trwah",
+      "bn": "তিন",
+      "en": "Three"
+    },
+    {
+      "fr": "Quatre",
+      "ipa": "/katʁ/",
+      "bnph": "কাত্র",
+      "enph": "katr",
+      "bn": "চার",
+      "en": "Four"
+    },
+    {
+      "fr": "Cinq",
+      "ipa": "/sɛ̃k/",
+      "bnph": "সাঁক",
+      "enph": "sank",
+      "bn": "পাঁচ",
+      "en": "Five"
+    },
+    {
+      "fr": "Six",
+      "ipa": "/sis/",
+      "bnph": "সিস",
+      "enph": "sees",
+      "bn": "ছয়",
+      "en": "Six"
+    },
+    {
+      "fr": "Sept",
+      "ipa": "/sɛt/",
+      "bnph": "সেত",
+      "enph": "set",
+      "bn": "সাত",
+      "en": "Seven"
+    },
+    {
+      "fr": "Huit",
+      "ipa": "/ɥit/",
+      "bnph": "উইত",
+      "enph": "weet",
+      "bn": "আট",
+      "en": "Eight"
+    },
+    {
+      "fr": "Neuf",
+      "ipa": "/nœf/",
+      "bnph": "নফ",
+      "enph": "nurf",
+      "bn": "নয়",
+      "en": "Nine"
+    },
+    {
+      "fr": "Dix",
+      "ipa": "/dis/",
+      "bnph": "দিস",
+      "enph": "dees",
+      "bn": "দশ",
+      "en": "Ten"
+    },
+    {
+      "fr": "Onze",
+      "ipa": "/ɔ̃z/",
+      "bnph": "ওঁজ",
+      "enph": "onz",
+      "bn": "এগারো",
+      "en": "Eleven"
+    },
+    {
+      "fr": "Douze",
+      "ipa": "/duz/",
+      "bnph": "দুজ",
+      "enph": "dooz",
+      "bn": "বারো",
+      "en": "Twelve"
+    },
+    {
+      "fr": "Treize",
+      "ipa": "/tʁɛz/",
+      "bnph": "ত্রেজ",
+      "enph": "trez",
+      "bn": "তেরো",
+      "en": "Thirteen"
+    },
+    {
+      "fr": "Quatorze",
+      "ipa": "/ka.tɔʁz/",
+      "bnph": "কাতোর্জ",
+      "enph": "kah-torz",
+      "bn": "চৌদ্দ",
+      "en": "Fourteen"
+    },
+    {
+      "fr": "Quinze",
+      "ipa": "/kɛ̃z/",
+      "bnph": "ক্যাঁজ",
+      "enph": "kanz",
+      "bn": "পনেরো",
+      "en": "Fifteen"
+    },
+    {
+      "fr": "Seize",
+      "ipa": "/sɛz/",
+      "bnph": "সেজ",
+      "enph": "sez",
+      "bn": "ষোলো",
+      "en": "Sixteen"
+    },
+    {
+      "fr": "Dix-sept",
+      "ipa": "/di.sɛt/",
+      "bnph": "দি-সেত",
+      "enph": "dee-set",
+      "bn": "সতেরো",
+      "en": "Seventeen"
+    },
+    {
+      "fr": "Dix-huit",
+      "ipa": "/di.zɥit/",
+      "bnph": "দি-জুইত",
+      "enph": "dee-zweet",
+      "bn": "আঠারো",
+      "en": "Eighteen"
+    },
+    {
+      "fr": "Dix-neuf",
+      "ipa": "/diz.nœf/",
+      "bnph": "দিজ-নফ",
+      "enph": "deez-nurf",
+      "bn": "উনিশ",
+      "en": "Nineteen"
+    },
+    {
+      "fr": "Vingt",
+      "ipa": "/vɛ̃/",
+      "bnph": "ভ্যাঁ",
+      "enph": "van",
+      "bn": "বিশ",
+      "en": "Twenty"
+    }
+  ]
+}

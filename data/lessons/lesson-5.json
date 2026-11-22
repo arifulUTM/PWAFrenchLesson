@@ -1,0 +1,64 @@
+
+{
+  "id": 5,
+  "title": "Lesson 5 – The French Days of the Week",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "fr": "Lundi",
+      "ipa": "/lœ̃.di/",
+      "bnph": "ল্যাঁদি",
+      "enph": "luhn-DEE",
+      "bn": "সোমবার",
+      "en": "Monday"
+    },
+    {
+      "fr": "Mardi",
+      "ipa": "/maʁ.di/",
+      "bnph": "মার্দি",
+      "enph": "mar-DEE",
+      "bn": "মঙ্গলবার",
+      "en": "Tuesday"
+    },
+    {
+      "fr": "Mercredi",
+      "ipa": "/mɛʁ.kʁə.di/",
+      "bnph": "মেরক্রদি",
+      "enph": "mehr-kruh-DEE",
+      "bn": "বুধবার",
+      "en": "Wednesday"
+    },
+    {
+      "fr": "Jeudi",
+      "ipa": "/ʒø.di/",
+      "bnph": "ঝ্যুদি",
+      "enph": "zhuh-DEE",
+      "bn": "বৃহস্পতিবার",
+      "en": "Thursday"
+    },
+    {
+      "fr": "Vendredi",
+      "ipa": "/vɑ̃.dʁə.di/",
+      "bnph": "ভাঁদ্রদি",
+      "enph": "vahn-druh-DEE",
+      "bn": "শুক্রবার",
+      "en": "Friday"
+    },
+    {
+      "fr": "Samedi",
+      "ipa": "/sam.di/",
+      "bnph": "সামদি",
+      "enph": "sam-DEE",
+      "bn": "শনিবার",
+      "en": "Saturday"
+    },
+    {
+      "fr": "Dimanche",
+      "ipa": "/di.mɑ̃ʃ/",
+      "bnph": "দিমঁশ",
+      "enph": "dee-MAHNSH",
+      "bn": "রবিবার",
+      "en": "Sunday"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+
+{
+  "id": 4,
+  "title": "Lesson 4 – The French Alphabet",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "fr": "A",
+      "ipa": "/a/",
+      "bnph": "আ",
+      "enph": "ah",
+      "bn": "এ",
+      "en": "A"
+    },
+    {
+      "fr": "B",
+      "ipa": "/be/",
+      "bnph": "বে",
+      "enph": "bay",
+      "bn": "বি",
+      "en": "B"
+    },
+    {
+      "fr": "C",
+      "ipa": "/se/",
+      "bnph": "সে",
+      "enph": "say",
+      "bn": "সি",
+      "en": "C"
+    },
+    {
+      "fr": "D",
+      "ipa": "/de/",
+      "bnph": "দে",
+      "enph": "day",
+      "bn": "ডি",
+      "en": "D"
+    },
+    {
+      "fr": "E",
+      "ipa": "/ə/",
+      "bnph": "অ্য",
+      "enph": "uh",
+      "bn": "ই",
+      "en": "E"
+    },
+    {
+      "fr": "F",
+      "ipa": "/ɛf/",
+      "bnph": "এফ",
+      "enph": "eff",
+      "bn": "এফ",
+      "en": "F"
+    },
+    {
+      "fr": "G",
+      "ipa": "/ʒe/",
+      "bnph": "ঝে",
+      "enph": "zhay",
+      "bn": "জি",
+      "en": "G"
+    },
+    {
+      "fr": "H",
+      "ipa": "/aʃ/",
+      "bnph": "আশ",
+      "enph": "ahsh",
+      "bn": "এইচ",
+      "en": "H"
+    },
+    {
+      "fr": "I",
+      "ipa": "/i/",
+      "bnph": "ই",
+      "enph": "ee",
+      "bn": "আই",
+      "en": "I"
+    },
+    {
+      "fr": "J",
+      "ipa": "/ʒi/",
+      "bnph": "ঝি",
+      "enph": "zhee",
+      "bn": "জে",
+      "en": "J"
+    },
+    {
+      "fr": "K",
+      "ipa": "/ka/",
+      "bnph": "কা",
+      "enph": "kah",
+      "bn": "কে",
+      "en": "K"
+    },
+    {
+      "fr": "L",
+      "ipa": "/ɛl/",
+      "bnph": "এল",
+      "enph": "ell",
+      "bn": "এল",
+      "en": "L"
+    },
+    {
+      "fr": "M",
+      "ipa": "/ɛm/",
+      "bnph": "এম",
+      "enph": "emm",
+      "bn": "এম",
+      "en": "M"
+    },
+    {
+      "fr": "N",
+      "ipa": "/ɛn/",
+      "bnph": "এন",
+      "enph": "enn",
+      "bn": "এন",
+      "en": "N"
+    },
+    {
+      "fr": "O",
+      "ipa": "/o/",
+      "bnph": "ও",
+      "enph": "oh",
+      "bn": "ও",
+      "en": "O"
+    },
+    {
+      "fr": "P",
+      "ipa": "/pe/",
+      "bnph": "পে",
+      "enph": "pay",
+      "bn": "পি",
+      "en": "P"
+    },
+    {
+      "fr": "Q",
+      "ipa": "/ky/",
+      "bnph": "ক্যু",
+      "enph": "kew",
+      "bn": "কিউ",
+      "en": "Q"
+    },
+    {
+      "fr": "R",
+      "ipa": "/ɛʁ/",
+      "bnph": "এহ্",
+      "enph": "ehr",
+      "bn": "আর",
+      "en": "R"
+    },
+    {
+      "fr": "S",
+      "ipa": "/ɛs/",
+      "bnph": "এস",
+      "enph": "ess",
+      "bn": "এস",
+      "en": "S"
+    },
+    {
+      "fr": "T",
+      "ipa": "/te/",
+      "bnph": "তে",
+      "enph": "tay",
+      "bn": "টি",
+      "en": "T"
+    },
+    {
+      "fr": "U",
+      "ipa": "/y/",
+      "bnph": "ইউ (ঠোঁট গোল করে)",
+      "enph": "ee with rounded lips",
+      "bn": "ইউ",
+      "en": "U"
+    },
+    {
+      "fr": "V",
+      "ipa": "/ve/",
+      "bnph": "ভে",
+      "enph": "vay",
+      "bn": "ভি",
+      "en": "V"
+    },
+    {
+      "fr": "W",
+      "ipa": "/dubləve/",
+      "bnph": "দুবল ভে",
+      "enph": "doo-bluh-vay",
+      "bn": "ডাবলিউ",
+      "en": "W"
+    },
+    {
+      "fr": "X",
+      "ipa": "/iks/",
+      "bnph": "ইক্স",
+      "enph": "eeks",
+      "bn": "এক্স",
+      "en": "X"
+    },
+    {
+      "fr": "Y",
+      "ipa": "/iɡʁɛk/",
+      "bnph": "ইগ্রেক",
+      "enph": "ee-grek",
+      "bn": "ওয়াই",
+      "en": "Y"
+    },
+    {
+      "fr": "Z",
+      "ipa": "/zɛd/",
+      "bnph": "জেদ",
+      "enph": "zed",
+      "bn": "জেড",
+      "en": "Z"
+    }
+  ]
+}

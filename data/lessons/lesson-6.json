@@ -1,0 +1,104 @@
+
+{
+  "id": 6,
+  "title": "Lesson 6 – The French Months of the Year",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "fr": "Janvier",
+      "ipa": "/ʒɑ̃.vje/",
+      "bnph": "ঝঁভিয়ে",
+      "enph": "zhahn-VYAY",
+      "bn": "জানুয়ারি",
+      "en": "January"
+    },
+    {
+      "fr": "Février",
+      "ipa": "/fe.vʁi.je/",
+      "bnph": "ফেভ্রিয়ে",
+      "enph": "fay-vree-YAY",
+      "bn": "ফেব্রুয়ারি",
+      "en": "February"
+    },
+    {
+      "fr": "Mars",
+      "ipa": "/maʁs/",
+      "bnph": "মার্স",
+      "enph": "mars",
+      "bn": "মার্চ",
+      "en": "March"
+    },
+    {
+      "fr": "Avril",
+      "ipa": "/a.vʁil/",
+      "bnph": "আভ্রিল",
+      "enph": "ah-VREEL",
+      "bn": "এপ্রিল",
+      "en": "April"
+    },
+    {
+      "fr": "Mai",
+      "ipa": "/mɛ/",
+      "bnph": "মে",
+      "enph": "may",
+      "bn": "মে",
+      "en": "May"
+    },
+    {
+      "fr": "Juin",
+      "ipa": "/ʒɥɛ̃/",
+      "bnph": "ঝ্যাঁ",
+      "enph": "zhwan",
+      "bn": "জুন",
+      "en": "June"
+    },
+    {
+      "fr": "Juillet",
+      "ipa": "/ʒɥi.jɛ/",
+      "bnph": "ঝ্যুইয়ে",
+      "enph": "zhwee-YAY",
+      "bn": "জুলাই",
+      "en": "July"
+    },
+    {
+      "fr": "Août",
+      "ipa": "/ut/",
+      "bnph": "উত",
+      "enph": "oot",
+      "bn": "আগস্ট",
+      "en": "August"
+    },
+    {
+      "fr": "Septembre",
+      "ipa": "/sɛp.tɑ̃bʁ/",
+      "bnph": "সেপ্টঁব্র",
+      "enph": "sep-TAHMBR",
+      "bn": "সেপ্টেম্বর",
+      "en": "September"
+    },
+    {
+      "fr": "Octobre",
+      "ipa": "/ɔk.tɔbʁ/",
+      "bnph": "অক্টোব্র",
+      "enph": "ok-TOBR",
+      "bn": "অক্টোবর",
+      "en": "October"
+    },
+    {
+      "fr": "Novembre",
+      "ipa": "/nɔ.vɑ̃bʁ/",
+      "bnph": "নোভঁব্র",
+      "enph": "no-VAHMBR",
+      "bn": "নভেম্বর",
+      "en": "November"
+    },
+    {
+      "fr": "Décembre",
+      "ipa": "/de.sɑ̃bʁ/",
+      "bnph": "দেসঁব্র",
+      "enph": "day-SAHMBR",
+      "bn": "ডিসেম্বর",
+      "en": "December"
+    }
+  ]
+}
