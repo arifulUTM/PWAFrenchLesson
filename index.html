@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d4ed8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Français A1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Mon Français A1</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#14213d;--mut:#6b7280;--pri:#1d4ed8;--pt:#fff;--bd:#e5e7eb;--red:#dc2626;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--mut:#94a3b8;--pri:#60a5fa;--pt:#0f172a;--bd:#334155;--red:#f87171}}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px}
+input[type=text],input:not([type]){width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit;margin-bottom:8px}
+button{font:inherit;border:0;border-radius:10px;padding:10px 14px;background:var(--pri);color:var(--pt);cursor:pointer}
+button.sec{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+button.on{background:var(--red);color:#fff;border-color:var(--red)}
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tabs button{flex:1}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--bd)}
+.item .t{flex:1;min-width:0}.fr{font-weight:600;font-size:18px}.en{color:var(--mut);font-size:14px}
+.ipa{color:var(--pri);font-size:15px}
+.bn,.ph{font-family:'Noto Sans Bengali','Kohinoor Bangla','Nirmala UI','Bangla Sangam MN',system-ui,sans-serif}
+.ph{font-size:14px;color:var(--mut)}.bn{font-size:16px}
+.day{color:var(--mut);font-size:13px;margin:14px 0 2px;text-transform:uppercase;letter-spacing:.04em}
+.ic{width:42px;height:42px;padding:0;border-radius:50%;flex:none}
+.tag{font-size:11px;color:var(--mut)}.note{font-size:13px;color:var(--mut)}
+details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin-bottom:12px}
+summary{font-weight:600;cursor:pointer}a{color:var(--pri)}
+</style>
+</head>
+<body>
+<main>
+<h1>🇫🇷 Mon Français A1</h1>
+<button id="inst" class="sec" hidden style="margin-bottom:12px">⬇ Install app</button>
+
+<div class="card">
+  <div class="row">
+    <button id="playAll">▶ Play all</button>
+    <button id="stop" class="sec">■ Stop</button>
+    <label class="note"><input type="checkbox" id="loop" style="margin:0 4px 0 0">Loop</label>
+  </div>
+  <p class="note" id="status" style="margin:8px 0 0">Items with your own recording or an audio file keep playing when the phone is locked. Synthesized voice usually needs the screen on.</p>
+</div>
+
+<div class="tabs"><button data-t="lessons">📚 Lessons</button><button data-t="notes">✍️ My notes</button></div>
+
+<section id="tLessons"><div id="lessons"></div></section>
+
+<section id="tNotes">
+  <div class="card">
+    <input id="fr" placeholder="Français (ex: Bonjour)" autocapitalize="none">
+    <input id="ipa" placeholder="IPA (ex: /bɔ̃.ʒuʁ/)" autocapitalize="none" autocomplete="off">
+    <input id="bnph" placeholder="বাংলা উচ্চারণ (যেমন: বঁজুর)" lang="bn">
+    <input id="enph" placeholder="English sound (ex: bohn-ZHOOR)" autocapitalize="none" autocomplete="off">
+    <input id="bn" placeholder="বাংলা অর্থ" lang="bn">
+    <input id="en" placeholder="English meaning">
+    <p class="note" style="margin:0 0 8px"><a id="lk" href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" target="_blank" rel="noopener">Look up IPA on Wiktionary ↗</a></p>
+    <div class="row"><button id="recBtn" class="sec">🎙 Record my voice</button><span id="recInfo" class="note"></span></div>
+    <div class="row" style="margin-top:10px"><button id="save">Save today</button></div>
+  </div>
+  <div id="notes"></div>
+  <div class="card">
+    <div class="row">
+      <button id="exp" class="sec">⬇ Export backup</button>
+      <button id="imp" class="sec">⬆ Import backup</button>
+      <input type="file" id="impf" accept=".json,application/json" hidden>
+    </div>
+    <p class="note" id="bk" style="margin:8px 0 0">Backup = your notes and all your recordings in one .json file.</p>
+  </div>
+</section>
+<audio id="aud" playsinline></audio>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let notes=[],recs={},lessons=[],db=null,mem=false,tab='lessons',pend=null,runId=0,rec=null,ip=null;
+const aud=$('aud');
+
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();ip=e;$('inst').hidden=false});
+$('inst').onclick=async()=>{if(ip){ip.prompt();ip=null;$('inst').hidden=true}};
+
+// ---------- storage
+function openDB(){return new Promise((res,rej)=>{try{const r=indexedDB.open('fr-a1',1);r.onupgradeneeded=()=>{r.result.createObjectStore('notes',{keyPath:'id'});r.result.createObjectStore('rec',{keyPath:'id'})};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}})}
+function tx(st,mode,fn){return new Promise((res,rej)=>{const t=db.transaction(st,mode);const q=fn(t.objectStore(st));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})}
+async function put(st,v){if(!mem)try{await tx(st,'readwrite',s=>s.put(v))}catch(e){mem=true}}
+async function del(st,id){if(!mem)try{await tx(st,'readwrite',s=>s.delete(id))}catch(e){}}
+async function load(){
+  try{db=await openDB();notes=await tx('notes','readonly',s=>s.getAll())||[];(await tx('rec','readonly',s=>s.getAll())||[]).forEach(x=>recs[x.id]=x.blob)}catch(e){mem=true}
+  render();
+  // auto-load data/lessons/lesson-1.json, lesson-2.json, lesson-3.json ... (stops after 3 missing numbers in a row)
+  for(let n=1,miss=0;miss<3&&n<=100;n++){
+    try{
+      const r=await fetch('data/lessons/lesson-'+n+'.json',{cache:'no-cache'});if(!r.ok)throw 0;
+      const j=await r.json();
+      (j.lessons||[j]).forEach(l=>{if(l&&Array.isArray(l.items)){l.id=l.id||n;l.title=l.title||'Lesson '+l.id;l.items.forEach((it,i)=>{it.id=it.id||'L'+l.id+'-'+String(i+1).padStart(2,'0')});lessons.push(l)}});
+      lessons.sort((a,b)=>a.id-b.id);miss=0;render();
+    }catch(e){miss++}
+  }
+  render();
+}
+
+// ---------- recording
+async function toggleRec(done,state){
+  if(rec){rec.stop();return}
+  try{
+    const st=await navigator.mediaDevices.getUserMedia({audio:true});
+    const mt=['audio/mp4','audio/webm;codecs=opus','audio/webm'].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||'';
+    const ch=[],r=new MediaRecorder(st,mt?{mimeType:mt}:{});rec=r;
+    r.ondataavailable=e=>e.data.size&&ch.push(e.data);
+    r.onstop=()=>{st.getTracks().forEach(t=>t.stop());rec=null;state(false);done(new Blob(ch,{type:r.mimeType||mt||'audio/webm'}))};
+    r.start();state(true);
+  }catch(e){state(false,'Microphone not allowed.')}
+}
+
+// ---------- playback
+function silentWav(ms){const n=8*ms,b=new Uint8Array(44+n),v=new DataView(b.buffer);const w=(o,s)=>[...s].forEach((c,i)=>b[o+i]=c.charCodeAt(0));
+  w(0,'RIFF');v.setUint32(4,36+n,true);w(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,8000,true);v.setUint32(28,8000,true);v.setUint16(32,1,true);v.setUint16(34,8,true);w(36,'data');v.setUint32(40,n,true);b.fill(128,44);
+  return URL.createObjectURL(new Blob([b],{type:'audio/wav'}))}
+const GAP=silentWav(900);
+function speak(t){return new Promise(res=>{if(!('speechSynthesis' in window))return res();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.85;const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith('fr'));if(v)u.voice=v;u.onend=u.onerror=()=>res();speechSynthesis.speak(u)})}
+function playSrc(s){return new Promise(res=>{aud.src=s;aud.onended=aud.onerror=()=>res();aud.play().catch(()=>res())})}
+function meta(it){if('mediaSession' in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:it.fr,artist:it.en||'Français A1',album:'Mon Français A1',artwork:[{src:'icons/icon-512.png',sizes:'512x512',type:'image/png'}]})}catch(e){}}}
+async function playOne(it){meta(it);const b=recs[it.id];
+  if(b){const u=URL.createObjectURL(b);await playSrc(u);URL.revokeObjectURL(u)}else if(it.audio)await playSrc(it.audio);else await speak(it.fr)}
+function stopAll(){runId++;try{speechSynthesis.cancel()}catch(e){}aud.pause();aud.dispatchEvent(new Event('ended'))}
+async function run(list){
+  stopAll();const my=++runId;
+  if('mediaSession' in navigator){try{const m=navigator.mediaSession;
+    m.setActionHandler('nexttrack',()=>{aud.pause();aud.dispatchEvent(new Event('ended'));try{speechSynthesis.cancel()}catch(e){}});
+    m.setActionHandler('pause',()=>{stopAll();$('status').textContent='Stopped.'})}catch(e){}}
+  do{for(let i=0;i<list.length&&my===runId;i++){
+      $('status').textContent='Playing '+(i+1)+'/'+list.length+': '+list[i].fr;
+      await playOne(list[i]);if(my===runId)await playSrc(GAP)}
+  }while($('loop').checked&&my===runId&&list.length);
+  if(my===runId)$('status').textContent='Done.';
+}
+$('playAll').onclick=()=>run(tab==='lessons'?lessons.flatMap(l=>l.items):[...notes].sort((a,b)=>a.ts-b.ts));
+$('stop').onclick=()=>{stopAll();$('status').textContent='Stopped.'};
+
+// ---------- render
+function row(it,canDel){
+  const r=el('div','item'),t=el('div','t');
+  const b=el('button','ic','▶');b.onclick=()=>{stopAll();playOne(it)};
+  t.append(el('div','fr',it.fr));
+  if(it.ipa)t.append(el('div','ipa',it.ipa));
+  const ph=[it.bnph,it.enph].filter(Boolean).join('  ·  ');if(ph){const x=el('div','ph',ph);x.lang='bn';t.append(x)}
+  if(it.bn){const x=el('div','bn',it.bn);x.lang='bn';t.append(x)}
+  if(it.en)t.append(el('div','en',it.en));
+  t.append(el('div','tag',recs[it.id]?'🎙 your voice':it.audio?'🔊 audio file':'🗣 synthesized'));
+  const m=el('button','sec ic','🎙');m.title='Record my voice';
+  m.onclick=()=>toggleRec(async bl=>{recs[it.id]=bl;await put('rec',{id:it.id,blob:bl});render()},(on,msg)=>{m.textContent=on?'■':'🎙';m.classList.toggle('on',on);if(msg)$('status').textContent=msg});
+  r.append(b,t,m);
+  if(canDel){const x=el('button','sec ic','✕');x.onclick=async()=>{notes=notes.filter(n=>n.id!==it.id);delete recs[it.id];await del('notes',it.id);await del('rec',it.id);render()};r.append(x)}
+  return r;
+}
+function render(){
+  $('tLessons').hidden=tab!=='lessons';$('tNotes').hidden=tab!=='notes';
+  document.querySelectorAll('.tabs button').forEach(b=>b.className=b.dataset.t===tab?'':'sec');
+  const L=$('lessons');L.innerHTML='';
+  if(!lessons.length)L.append(el('p','note','No lessons found. Check data/lessons/lesson-1.json.'));
+  [...lessons].reverse().forEach((l,i)=>{
+    const d=el('details');d.open=i===0;d.append(el('summary','',l.title+' · '+l.items.length));
+    const pb=el('button','sec','▶ Play this lesson');pb.style.margin='10px 0 0';pb.onclick=()=>run(l.items);d.append(pb);
+    l.items.forEach(it=>d.append(row(it,false)));L.append(d)});
+  const N=$('notes');N.innerHTML='';let last='';
+  if(!notes.length)N.append(el('p','note','No notes yet. Add your first word above.'));
+  [...notes].sort((a,b)=>b.ts-a.ts).forEach(it=>{
+    if(it.day!==last){last=it.day;N.append(el('div','day',new Date(it.day+'T12:00').toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long'})))}
+    N.append(row(it,true))});
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;render()});
+
+// ---------- add note
+$('fr').addEventListener('input',()=>{const w=$('fr').value.trim().split(/\s+/)[0];$('lk').href=w?'https://en.wiktionary.org/wiki/'+encodeURIComponent(w.toLowerCase())+'#French':'https://en.wiktionary.org/wiki/Wiktionary:Main_Page'});
+$('recBtn').onclick=()=>toggleRec(b=>{pend=b;$('recBtn').textContent='🎙 Re-record';$('recInfo').textContent='Recorded ✓'},(on,msg)=>{$('recBtn').classList.toggle('on',on);if(on){$('recBtn').textContent='■ Stop recording';$('recInfo').textContent='Recording…'}if(msg)$('recInfo').textContent=msg});
+$('save').onclick=async()=>{
+  const fr=$('fr').value.trim();if(!fr)return;
+  const ts=Date.now(),it={id:'n'+ts,ts,fr,ipa:$('ipa').value.trim(),bnph:$('bnph').value.trim(),enph:$('enph').value.trim(),bn:$('bn').value.trim(),en:$('en').value.trim(),day:new Date(ts).toISOString().slice(0,10)};
+  notes.unshift(it);await put('notes',it);
+  if(pend){recs[it.id]=pend;await put('rec',{id:it.id,blob:pend});pend=null}
+  ['fr','ipa','bnph','enph','bn','en'].forEach(k=>$(k).value='');
+  $('recBtn').textContent='🎙 Record my voice';$('recInfo').textContent='';render();
+};
+
+// ---------- backup
+function b2d(b){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(r.error);r.readAsDataURL(b)})}
+function d2b(d){const i=d.indexOf(','),mime=d.slice(5,d.indexOf(';')),bin=atob(d.slice(i+1)),u=new Uint8Array(bin.length);for(let k=0;k<bin.length;k++)u[k]=bin.charCodeAt(k);return new Blob([u],{type:mime})}
+$('exp').onclick=async()=>{
+  try{
+    const out={v:2,notes:[],lessonRecs:{}};
+    for(const n of notes)out.notes.push({...n,audio:recs[n.id]?await b2d(recs[n.id]):null});
+    for(const k in recs)if(k[0]==='L')out.lessonRecs[k]=await b2d(recs[k]);
+    const a=el('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(out)],{type:'application/json'}));
+    a.download='french-a1-backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.append(a);a.click();a.remove();
+    try{localStorage.setItem('fr-lastbk',Date.now())}catch(e){}
+    $('bk').textContent='Backup downloaded ✓';
+  }catch(e){$('bk').textContent='Could not create the backup.'}
+};
+$('imp').onclick=()=>$('impf').click();
+$('impf').onchange=async()=>{
+  const f=$('impf').files[0];if(!f)return;
+  try{
+    const d=JSON.parse(await f.text());let n=0;
+    const list=d.notes||(d.items||[]).map(x=>({...x,id:'n'+x.id,ts:x.id}));
+    for(const x of list){if(!x.fr)continue;
+      const it={id:x.id,ts:x.ts||+String(x.id).slice(1),fr:x.fr,ipa:x.ipa||'',bnph:x.bnph||'',enph:x.enph||'',bn:x.bn||'',en:x.en||'',day:x.day||new Date().toISOString().slice(0,10)};
+      const i=notes.findIndex(o=>o.id===it.id);if(i>=0)notes[i]=it;else notes.push(it);
+      await put('notes',it);if(x.audio){recs[it.id]=d2b(x.audio);await put('rec',{id:it.id,blob:recs[it.id]})}n++}
+    for(const k in d.lessonRecs||{}){recs[k]=d2b(d.lessonRecs[k]);await put('rec',{id:k,blob:recs[k]});n++}
+    render();$('bk').textContent='Imported '+n+' item(s) ✓';
+  }catch(e){$('bk').textContent='That file could not be read.'}
+  $('impf').value='';
+};
+try{const t=localStorage.getItem('fr-lastbk');if(t)$('bk').textContent='Last backup: '+new Date(+t).toLocaleDateString()+'. Tip: back up once a week.'}catch(e){}
+if('speechSynthesis' in window)speechSynthesis.getVoices();
+load();
+</script>
+</body>
+</html>

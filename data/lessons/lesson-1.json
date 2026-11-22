@@ -1,0 +1,215 @@
+{
+ "id": 1,
+ "title": "Lesson 1 – Greetings & basics",
+ "date": "2026-11-22",
+ "items": [
+  {
+   "fr": "Bonjour",
+   "ipa": "/bɔ̃.ʒuʁ/",
+   "bnph": "বঁজুর",
+   "enph": "bohn-ZHOOR",
+   "bn": "হ্যালো / শুভ সকাল",
+   "en": "Hello / Good morning"
+  },
+  {
+   "fr": "Bienvenue",
+   "ipa": "/bjɛ̃.və.ny/",
+   "bnph": "ব্যাঁভনু",
+   "enph": "byan-vuh-NEW",
+   "bn": "স্বাগতম",
+   "en": "Welcome"
+  },
+  {
+   "fr": "Je m’appelle…",
+   "ipa": "/ʒə ma.pɛl/",
+   "bnph": "জ্ মাপেল",
+   "enph": "zhuh ma-PEL",
+   "bn": "আমার নাম…",
+   "en": "My name is…"
+  },
+  {
+   "fr": "Je suis…",
+   "ipa": "/ʒə sɥi/",
+   "bnph": "জ্ সুই",
+   "enph": "zhuh SWEE",
+   "bn": "আমি …",
+   "en": "I am…"
+  },
+  {
+   "fr": "Comment ça va ?",
+   "ipa": "/kɔ.mɑ̃ sa va/",
+   "bnph": "কমঁ সা ভা",
+   "enph": "koh-MOHN sa va",
+   "bn": "আপনি কেমন আছেন?",
+   "en": "How are you?"
+  },
+  {
+   "fr": "Ça va bien",
+   "ipa": "/sa va bjɛ̃/",
+   "bnph": "সা ভা ব্যাঁ",
+   "enph": "sa va BYAN",
+   "bn": "আমি ভালো আছি",
+   "en": "I’m fine"
+  },
+  {
+   "fr": "Ça va mal",
+   "ipa": "/sa va mal/",
+   "bnph": "সা ভা মাল",
+   "enph": "sa va MAL",
+   "bn": "আমি ভালো নেই",
+   "en": "I’m not doing well"
+  },
+  {
+   "fr": "Pas mal",
+   "ipa": "/pa mal/",
+   "bnph": "পা মাল",
+   "enph": "pa MAL",
+   "bn": "খারাপ না",
+   "en": "Not bad"
+  },
+  {
+   "fr": "Comme ci, comme ça",
+   "ipa": "/kɔm si kɔm sa/",
+   "bnph": "কম সি কম সা",
+   "enph": "kom see kom SA",
+   "bn": "মোটামুটি",
+   "en": "So-so"
+  },
+  {
+   "fr": "Merci",
+   "ipa": "/mɛʁ.si/",
+   "bnph": "মের্সি",
+   "enph": "mehr-SEE",
+   "bn": "ধন্যবাদ",
+   "en": "Thank you"
+  },
+  {
+   "fr": "Merci beaucoup",
+   "ipa": "/mɛʁ.si bo.ku/",
+   "bnph": "মের্সি বোকু",
+   "enph": "mehr-see boh-KOO",
+   "bn": "অনেক ধন্যবাদ",
+   "en": "Thank you very much"
+  },
+  {
+   "fr": "S’il vous plaît",
+   "ipa": "/sil vu plɛ/",
+   "bnph": "সিল ভু প্লে",
+   "enph": "seel voo PLEH",
+   "bn": "দয়া করে (আনুষ্ঠানিক)",
+   "en": "Please (formal)"
+  },
+  {
+   "fr": "S’il te plaît",
+   "ipa": "/sil tə plɛ/",
+   "bnph": "সিল ত্ প্লে",
+   "enph": "seel tuh PLEH",
+   "bn": "প্লিজ (অনানুষ্ঠানিক)",
+   "en": "Please (informal)"
+  },
+  {
+   "fr": "Je parle français",
+   "ipa": "/ʒə paʁl fʁɑ̃.sɛ/",
+   "bnph": "জ্ পার্ল ফ্রঁসে",
+   "enph": "zhuh parl frahn-SEH",
+   "bn": "আমি ফরাসি বলি",
+   "en": "I speak French"
+  },
+  {
+   "fr": "Je parle anglais",
+   "ipa": "/ʒə paʁl ɑ̃.ɡlɛ/",
+   "bnph": "জ্ পার্ল আঁগ্লে",
+   "enph": "zhuh parl ahn-GLEH",
+   "bn": "আমি ইংরেজি বলি",
+   "en": "I speak English"
+  },
+  {
+   "fr": "Excusez-moi",
+   "ipa": "/ɛk.sky.ze mwa/",
+   "bnph": "এক্স্কুজে ম্বা",
+   "enph": "ex-kew-ZAY mwa",
+   "bn": "মাফ করবেন (আনুষ্ঠানিক)",
+   "en": "Excuse me (formal)"
+  },
+  {
+   "fr": "Excuse-moi",
+   "ipa": "/ɛk.skyz mwa/",
+   "bnph": "এক্স্কুজ ম্বা",
+   "enph": "ex-KEWZ mwa",
+   "bn": "মাফ করো (অনানুষ্ঠানিক)",
+   "en": "Excuse me (informal)"
+  },
+  {
+   "fr": "Pardon",
+   "ipa": "/paʁ.dɔ̃/",
+   "bnph": "পারদঁ",
+   "enph": "par-DOHN",
+   "bn": "দুঃখিত / মাফ করবেন",
+   "en": "Sorry / pardon"
+  },
+  {
+   "fr": "Au revoir",
+   "ipa": "/o ʁə.vwaʁ/",
+   "bnph": "ও র্ভোয়ার",
+   "enph": "oh ruh-VWAR",
+   "bn": "বিদায়",
+   "en": "Goodbye"
+  },
+  {
+   "fr": "Salut",
+   "ipa": "/sa.ly/",
+   "bnph": "সালু",
+   "enph": "sa-LEW",
+   "bn": "হাই / বিদায় (অনানুষ্ঠানিক)",
+   "en": "Hi / Bye (informal)"
+  },
+  {
+   "fr": "Bonne nuit",
+   "ipa": "/bɔn nɥi/",
+   "bnph": "বন নুই",
+   "enph": "bon NWEE",
+   "bn": "শুভ রাত্রি",
+   "en": "Good night"
+  },
+  {
+   "fr": "Bonsoir",
+   "ipa": "/bɔ̃.swaʁ/",
+   "bnph": "বঁসোয়ার",
+   "enph": "bohn-SWAR",
+   "bn": "শুভ সন্ধ্যা",
+   "en": "Good evening"
+  },
+  {
+   "fr": "Bonne journée",
+   "ipa": "/bɔn ʒuʁ.ne/",
+   "bnph": "বন জুর্নে",
+   "enph": "bon zhoor-NAY",
+   "bn": "আপনার দিনটি শুভ হোক",
+   "en": "Have a good day"
+  },
+  {
+   "fr": "Bonne soirée",
+   "ipa": "/bɔn swa.ʁe/",
+   "bnph": "বন সোয়ারে",
+   "enph": "bon swa-RAY",
+   "bn": "আপনার সন্ধ্যাটি ভালো কাটুক",
+   "en": "Have a nice evening"
+  },
+  {
+   "fr": "À bientôt",
+   "ipa": "/a bjɛ̃.to/",
+   "bnph": "আ ব্যাঁতো",
+   "enph": "a byan-TOH",
+   "bn": "শীঘ্রই দেখা হবে",
+   "en": "See you soon"
+  },
+  {
+   "fr": "À tout à l’heure",
+   "ipa": "/a tut a lœʁ/",
+   "bnph": "আ তুত আ লোর",
+   "enph": "a toot a LUR",
+   "bn": "একটু পরে দেখা হবে (একই দিনে)",
+   "en": "See you later (same day)"
+  }
+ ]
+}

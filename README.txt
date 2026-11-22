@@ -1,0 +1,42 @@
+MON FRANÇAIS A1 - PWA
+=====================
+
+FILES
+  index.html, sw.js, manifest.webmanifest, icons/   the app (don't need to touch)
+  data/lessons/lesson-1.json                        Lesson 1
+  data/lessons/lesson-2.json, lesson-3.json ...     YOUR NEXT LESSONS (you add these)
+
+1) PUT IT ONLINE (free, needs https)
+  Netlify : app.netlify.com/drop -> drag this whole folder in.
+  GitHub Pages : new repo -> upload all files -> Settings > Pages > Deploy from branch (main, root).
+  Phone: Android Chrome menu > Install app. iPhone Safari: Share > Add to Home Screen.
+
+2) ADD A NEW LESSON (loads automatically)
+  - Make a file named exactly:  lesson-2.json   (then lesson-3.json, lesson-4.json ...)
+  - Put it in the folder:       data/lessons/
+  - Upload it. Open the app online once: the new lesson appears by itself.
+  - Numbers must be in order with no gaps (the app stops after 3 missing numbers in a row).
+  - Nothing else to edit. No index file.
+
+  Inside each lesson file:
+  {
+    "id": 2,
+    "title": "Lesson 2 - Numbers",
+    "date": "2026-11-23",
+    "items": [
+      { "fr": "Un", "ipa": "/œ̃/", "bnph": "আঁ", "enph": "uhn", "bn": "এক", "en": "One" }
+    ]
+  }
+  Optional per item: "audio": "audio/l2-01.mp3" (put the mp3 in an audio/ folder).
+
+  After opening once online, each lesson is saved on the phone and works offline.
+
+3) IF YOU CHANGE index.html OR sw.js
+  Change  const C='fr-a1-v2'  to  'fr-a1-v3' in sw.js so phones pick up the update.
+
+4) LOCK-SCREEN AUDIO
+  Works for items with your own recording (tap the mic) or an "audio" file.
+  The phone's built-in voice usually stops when the screen locks.
+
+5) BACKUP
+  My notes tab > Export backup (your notes + your recordings).
