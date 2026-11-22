@@ -45,10 +45,13 @@ FILES
 5) BACKUP
   My notes tab > Export backup (your notes + your recordings).
 
-6) MANY LESSONS
-  Lessons tab shows a filter once you have more than 10 lessons: choose Group size (10/20/50)
-  and then Show: All, Lessons 1-20, Lessons 21-40 ... Play all plays only the group you picked.
-  Your choice is remembered.
+6) MANY LESSONS / MANY WORDS
+  The filter appears once you have more than 10 words. Lessons tab:
+    Lesson          : All lessons, or one lesson (Lessons 1-20 ranges appear when you have 20+ lessons)
+    Words per group : 10 / 20 / 50
+    Show            : All words, Words 1-20, Words 21-40 ...
+  Example: Lesson 2 with 121 words -> choose Lesson 2, then Words 1-20, 21-40 ...
+  Play all plays only what is currently shown. Your choice is remembered.
 
 7) SAY BANGLA / ENGLISH MEANING
   Tick 'Say: French / বাংলা / English' above the play buttons. Order: French, then Bangla, then English.

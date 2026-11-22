@@ -63,7 +63,8 @@ select{font:inherit;padding:8px;border:1px solid var(--bd);border-radius:10px;ba
 
 <section id="tLessons">
   <div class="row" id="flt" style="margin-bottom:12px" hidden>
-    <label class="note">Group size <select id="gsz"><option>10</option><option>20</option><option>50</option></select></label>
+    <label class="note">Lesson <select id="lsn"></select></label>
+    <label class="note">Words per group <select id="gsz"><option>10</option><option>20</option><option>50</option></select></label>
     <label class="note">Show <select id="grp"></select></label>
   </div>
   <div id="lessons"></div>
@@ -97,7 +98,7 @@ select{font:inherit;padding:8px;border:1px solid var(--bd);border-radius:10px;ba
 <script>
 const $=id=>document.getElementById(id);
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-let gsz=20,grp='all';try{gsz=+localStorage.getItem('fr-gsz')||20;grp=localStorage.getItem('fr-grp')||'all'}catch(e){}
+let gsz=20,grp='all',lsn='all';try{gsz=+localStorage.getItem('fr-gsz')||20;grp=localStorage.getItem('fr-grp')||'all';lsn=localStorage.getItem('fr-lsn')||'all'}catch(e){}
 let notes=[],recs={},lessons=[],db=null,mem=false,tab='lessons',pend=null,runId=0,rec=null,ip=null;
 const aud=$('aud');
 
@@ -193,7 +194,7 @@ async function run(list){
   }while($('loop').checked&&my===runId&&list.length);
   if(my===runId)$('status').textContent='Done.';
 }
-$('playAll').onclick=()=>run(tab==='lessons'?shown().flatMap(l=>l.items):[...notes].sort((a,b)=>a.ts-b.ts));
+$('playAll').onclick=()=>run(tab==='lessons'?view().flatMap(([l,items])=>items):[...notes].sort((a,b)=>a.ts-b.ts));
 $('stop').onclick=()=>{stopAll();$('status').textContent='Stopped.'};
 
 // ---------- render
@@ -212,26 +213,45 @@ function row(it,canDel){
   if(canDel){const x=el('button','sec ic','✕');x.onclick=async()=>{notes=notes.filter(n=>n.id!==it.id);delete recs[it.id];await del('notes',it.id);await del('rec',it.id);render()};r.append(x)}
   return r;
 }
-function shown(){if(grp==='all')return lessons;const k=+grp;return lessons.slice(k*gsz,(k+1)*gsz)}
+function selLessons(){
+  if(lsn==='all')return lessons;
+  if(lsn[0]==='r'){const k=+lsn.slice(1);return lessons.slice(k*20,(k+1)*20)}
+  return lessons.filter(l=>String(l.id)===lsn)}
+function flat(){return selLessons().flatMap(l=>l.items.map(it=>({l,it})))}
+function view(){ // [[lesson, itemsToShow], ...]
+  const f=flat(),part=grp==='all'?f:f.slice(+grp*gsz,(+grp+1)*gsz),m=new Map();
+  part.forEach(({l,it})=>{if(!m.has(l))m.set(l,[]);m.get(l).push(it)});return [...m]}
+function saveF(){try{localStorage.setItem('fr-gsz',gsz);localStorage.setItem('fr-grp',grp);localStorage.setItem('fr-lsn',lsn)}catch(e){}}
 function fillGroups(){
-  const g=$('grp'),n=Math.ceil(lessons.length/gsz);
+  const nl=Math.ceil(lessons.length/20);
+  const ok=lsn==='all'||(lsn[0]==='r'&&lessons.length>20&&+lsn.slice(1)<nl)||lessons.some(l=>String(l.id)===lsn);
+  if(!ok)lsn='all';
+  const ls=$('lsn'),g=$('grp');
+  ls.innerHTML='';ls.append(new Option('All lessons','all'));
+  if(lessons.length>20)for(let k=0;k<nl;k++){const p=lessons.slice(k*20,(k+1)*20);ls.append(new Option('Lessons '+p[0].id+'–'+p[p.length-1].id,'r'+k))}
+  lessons.forEach(l=>ls.append(new Option(l.title+' ('+l.items.length+')',l.id)));
+  const total=flat().length,n=Math.ceil(total/gsz);
   if(grp!=='all'&&+grp>=n)grp='all';
-  g.innerHTML='';g.append(new Option('All lessons ('+lessons.length+')','all'));
-  for(let k=0;k<n;k++){const p=lessons.slice(k*gsz,(k+1)*gsz);g.append(new Option('Lessons '+p[0].id+'–'+p[p.length-1].id+' ('+p.length+')',k))}
-  g.value=grp;$('gsz').value=gsz;$('flt').hidden=lessons.length<=10;
+  g.innerHTML='';g.append(new Option('All words ('+total+')','all'));
+  for(let k=0;k<n;k++)g.append(new Option('Words '+(k*gsz+1)+'–'+Math.min(total,(k+1)*gsz),k));
+  ls.value=lsn;g.value=grp;$('gsz').value=gsz;
+  $('flt').hidden=lessons.reduce((a,l)=>a+l.items.length,0)<=10;
 }
-$('gsz').onchange=()=>{gsz=+$('gsz').value;grp='all';try{localStorage.setItem('fr-gsz',gsz);localStorage.setItem('fr-grp',grp)}catch(e){}render()};
-$('grp').onchange=()=>{grp=$('grp').value;try{localStorage.setItem('fr-grp',grp)}catch(e){}render()};
+$('gsz').onchange=()=>{gsz=+$('gsz').value;grp='all';saveF();render()};
+$('lsn').onchange=()=>{lsn=$('lsn').value;grp='all';saveF();render()};
+$('grp').onchange=()=>{grp=$('grp').value;saveF();render()};
 function render(){
   fillGroups();
   $('tLessons').hidden=tab!=='lessons';$('tNotes').hidden=tab!=='notes';
   document.querySelectorAll('.tabs button').forEach(b=>b.className=b.dataset.t===tab?'':'sec');
   const L=$('lessons');L.innerHTML='';
   if(!lessons.length)L.append(el('p','note','No lessons found. Check data/lessons/lesson-1.json.'));
-  [...shown()].reverse().forEach((l,i)=>{
-    const d=el('details');d.open=i===0;d.append(el('summary','',l.title+' · '+l.items.length));
-    const pb=el('button','sec','▶ Play this lesson');pb.style.margin='10px 0 0';pb.onclick=()=>run(l.items);d.append(pb);
-    l.items.forEach(it=>d.append(row(it,false)));L.append(d)});
+  const V=view();
+  [...V].reverse().forEach(([l,items],i)=>{
+    const d=el('details');d.open=i===0;
+    d.append(el('summary','',l.title+' · '+(items.length===l.items.length?items.length:items.length+' of '+l.items.length)));
+    const pb=el('button','sec','▶ Play these ('+items.length+')');pb.style.margin='10px 0 0';pb.onclick=()=>run(items);d.append(pb);
+    items.forEach(it=>d.append(row(it,false)));L.append(d)});
   const N=$('notes');N.innerHTML='';let last='';
   if(!notes.length)N.append(el('p','note','No notes yet. Add your first word above.'));
   [...notes].sort((a,b)=>b.ts-a.ts).forEach(it=>{
