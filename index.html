@@ -35,7 +35,8 @@ button.on{background:var(--red);color:#fff;border-color:var(--red)}
 .ic{width:42px;height:42px;padding:0;border-radius:50%;flex:none}
 .tag{font-size:11px;color:var(--mut)}.note{font-size:13px;color:var(--mut)}
 details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin-bottom:12px}
-summary{font-weight:600;cursor:pointer}a{color:var(--pri)}
+summary{font-weight:600;cursor:pointer}
+select{font:inherit;padding:8px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);max-width:100%}a{color:var(--pri)}
 </style>
 </head>
 <body>
@@ -54,7 +55,13 @@ summary{font-weight:600;cursor:pointer}a{color:var(--pri)}
 
 <div class="tabs"><button data-t="lessons">📚 Lessons</button><button data-t="notes">✍️ My notes</button></div>
 
-<section id="tLessons"><div id="lessons"></div></section>
+<section id="tLessons">
+  <div class="row" id="flt" style="margin-bottom:12px" hidden>
+    <label class="note">Group size <select id="gsz"><option>10</option><option>20</option><option>50</option></select></label>
+    <label class="note">Show <select id="grp"></select></label>
+  </div>
+  <div id="lessons"></div>
+</section>
 
 <section id="tNotes">
   <div class="card">
@@ -84,6 +91,7 @@ summary{font-weight:600;cursor:pointer}a{color:var(--pri)}
 <script>
 const $=id=>document.getElementById(id);
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let gsz=20,grp='all';try{gsz=+localStorage.getItem('fr-gsz')||20;grp=localStorage.getItem('fr-grp')||'all'}catch(e){}
 let notes=[],recs={},lessons=[],db=null,mem=false,tab='lessons',pend=null,runId=0,rec=null,ip=null;
 const aud=$('aud');
 
@@ -106,7 +114,7 @@ async function load(){
 let sig='',pageSig=null;
 async function loadLessons(){
   const got=[];
-  for(let n=1,miss=0;miss<3&&n<=100;n++){
+  for(let n=1,miss=0;miss<3&&n<=500;n++){
     try{
       const r=await fetch('data/lessons/lesson-'+n+'.json',{cache:'no-cache'});if(!r.ok)throw 0;
       const j=await r.json();
@@ -165,7 +173,7 @@ async function run(list){
   }while($('loop').checked&&my===runId&&list.length);
   if(my===runId)$('status').textContent='Done.';
 }
-$('playAll').onclick=()=>run(tab==='lessons'?lessons.flatMap(l=>l.items):[...notes].sort((a,b)=>a.ts-b.ts));
+$('playAll').onclick=()=>run(tab==='lessons'?shown().flatMap(l=>l.items):[...notes].sort((a,b)=>a.ts-b.ts));
 $('stop').onclick=()=>{stopAll();$('status').textContent='Stopped.'};
 
 // ---------- render
@@ -184,12 +192,23 @@ function row(it,canDel){
   if(canDel){const x=el('button','sec ic','✕');x.onclick=async()=>{notes=notes.filter(n=>n.id!==it.id);delete recs[it.id];await del('notes',it.id);await del('rec',it.id);render()};r.append(x)}
   return r;
 }
+function shown(){if(grp==='all')return lessons;const k=+grp;return lessons.slice(k*gsz,(k+1)*gsz)}
+function fillGroups(){
+  const g=$('grp'),n=Math.ceil(lessons.length/gsz);
+  if(grp!=='all'&&+grp>=n)grp='all';
+  g.innerHTML='';g.append(new Option('All lessons ('+lessons.length+')','all'));
+  for(let k=0;k<n;k++){const p=lessons.slice(k*gsz,(k+1)*gsz);g.append(new Option('Lessons '+p[0].id+'–'+p[p.length-1].id+' ('+p.length+')',k))}
+  g.value=grp;$('gsz').value=gsz;$('flt').hidden=lessons.length<=10;
+}
+$('gsz').onchange=()=>{gsz=+$('gsz').value;grp='all';try{localStorage.setItem('fr-gsz',gsz);localStorage.setItem('fr-grp',grp)}catch(e){}render()};
+$('grp').onchange=()=>{grp=$('grp').value;try{localStorage.setItem('fr-grp',grp)}catch(e){}render()};
 function render(){
+  fillGroups();
   $('tLessons').hidden=tab!=='lessons';$('tNotes').hidden=tab!=='notes';
   document.querySelectorAll('.tabs button').forEach(b=>b.className=b.dataset.t===tab?'':'sec');
   const L=$('lessons');L.innerHTML='';
   if(!lessons.length)L.append(el('p','note','No lessons found. Check data/lessons/lesson-1.json.'));
-  [...lessons].reverse().forEach((l,i)=>{
+  [...shown()].reverse().forEach((l,i)=>{
     const d=el('details');d.open=i===0;d.append(el('summary','',l.title+' · '+l.items.length));
     const pb=el('button','sec','▶ Play this lesson');pb.style.margin='10px 0 0';pb.onclick=()=>run(l.items);d.append(pb);
     l.items.forEach(it=>d.append(row(it,false)));L.append(d)});

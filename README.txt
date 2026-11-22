@@ -44,3 +44,8 @@ FILES
 
 5) BACKUP
   My notes tab > Export backup (your notes + your recordings).
+
+6) MANY LESSONS
+  Lessons tab shows a filter once you have more than 10 lessons: choose Group size (10/20/50)
+  and then Show: All, Lessons 1-20, Lessons 21-40 ... Play all plays only the group you picked.
+  Your choice is remembered.
