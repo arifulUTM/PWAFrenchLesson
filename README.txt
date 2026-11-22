@@ -39,11 +39,11 @@ FILES
   No version number to change.
 
 4) LOCK-SCREEN AUDIO
-  Works for items with your own recording (tap the mic) or an "audio" file.
+  Works only for items that have an "audio" file in the lesson JSON.
   The phone's built-in voice usually stops when the screen locks.
 
 5) BACKUP
-  My notes tab > Export backup (your notes + your recordings).
+  My notes tab > Export backup (your notes).
 
 6) MANY LESSONS / MANY WORDS
   The filter appears once you have more than 10 words. Lessons tab:
