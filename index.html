@@ -59,6 +59,7 @@ details>.sec{margin:12px 0 4px;font-size:14px;padding:8px 14px}
 .bn{margin-top:6px;font-size:18px;font-weight:600;color:var(--ink)}
 .en{margin-top:2px;font-size:14.5px;font-style:italic;color:var(--gr)}
 .tag{margin-top:4px;font-size:11px;color:var(--gr)}
+.nt{margin:12px 0 6px;padding:10px 14px 12px;border-left:3px solid var(--red);background:var(--now)}.nt h3{margin:0 0 6px;font:700 18px/1.25 var(--serif);color:var(--ink)}.nt .bn,.nt .en{white-space:pre-line}.nt .en{margin-top:6px}.nt .exs{margin-top:10px;border-top:1px solid var(--rule)}.nt .ex{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--rule)}.nt .ex:last-child{border-bottom:0}.nt .ex .fr{font-size:18px}.nt .ex .bn{margin-top:3px;font-size:15px}.nt .ex .en{margin-top:1px;font-size:13.5px}.nt .ex button{width:34px;height:34px;font-size:12px;flex:none}
 .day{margin:20px 0 2px;font:700 16px var(--serif);color:var(--gr)}
 
 .card{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;margin-bottom:16px}
@@ -171,7 +172,7 @@ async function loadLessons(){
     try{
       const r=await fetch('data/lessons/lesson-'+n+'.json',{cache:'no-cache'});if(!r.ok)throw 0;
       const j=await r.json();
-      (j.lessons||[j]).forEach(l=>{if(l&&Array.isArray(l.items)){l.id=l.id||n;l.title=l.title||'Lesson '+l.id;l.items.forEach((it,i)=>{it.id=it.id||'L'+l.id+'-'+String(i+1).padStart(2,'0')});got.push(l)}});
+      (j.lessons||[j]).forEach(l=>{if(l&&(Array.isArray(l.items)||Array.isArray(l.notes))){l.items=l.items||[];l.notes=Array.isArray(l.notes)?l.notes:[];l.id=l.id||n;l.title=l.title||'Lesson '+l.id;l.items.forEach((it,i)=>{it.id=it.id||'L'+l.id+'-'+String(i+1).padStart(2,'0')});got.push(l)}});
       miss=0;
     }catch(e){miss++}
   }
@@ -245,6 +246,20 @@ function row(it,canDel){
   if(canDel){const x=el('button','sec ic','✕');x.onclick=async()=>{notes=notes.filter(n=>n.id!==it.id);delete recs[it.id];await del('notes',it.id);await del('rec',it.id);render()};r.append(x)}
   return r;
 }
+function noteCard(n){
+  const c=el('div','nt');
+  if(n.title)c.append(el('h3','',n.title));
+  if(n.bn){const x=el('div','bn',n.bn);x.lang='bn';c.append(x)}
+  if(n.en)c.append(el('div','en',n.en));
+  if(Array.isArray(n.examples)&&n.examples.length){const w=el('div','exs');
+    n.examples.forEach((ex,i)=>{const r=el('div','ex'),t=el('div','t');
+      const b=el('button','sec ic','▶');b.onclick=()=>{stopAll();playOne({id:'x'+i,fr:ex.fr,en:ex.en,bn:ex.bn})};
+      t.append(el('div','fr',ex.fr));
+      if(ex.bn){const x=el('div','bn',ex.bn);x.lang='bn';t.append(x)}
+      if(ex.en)t.append(el('div','en',ex.en));
+      r.append(b,t);w.append(r)});
+    c.append(w)}
+  return c}
 function selLessons(){
   if(lsn==='all')return lessons;
   if(lsn[0]==='r'){const k=+lsn.slice(1);return lessons.slice(k*20,(k+1)*20)}
@@ -279,10 +294,14 @@ function render(){
   const L=$('lessons');L.innerHTML='';
   if(!lessons.length)L.append(el('p','note','No lessons found. Check data/lessons/lesson-1.json.'));
   const V=view();
+  if(grp==='all')selLessons().forEach(l=>{if(!l.items.length&&l.notes.length)V.push([l,[]])});
+  V.sort((a,b)=>lessons.indexOf(a[0])-lessons.indexOf(b[0]));
   [...V].reverse().forEach(([l,items],i)=>{
     const d=el('details');d.open=i===0;
-    const sm=el('summary','',l.title);sm.append(el('span','cnt',items.length===l.items.length?items.length+' words':items.length+' of '+l.items.length));d.append(sm);
-    const pb=el('button','sec','▶ Play these ('+items.length+')');pb.style.margin='10px 0 0';pb.onclick=()=>run(items);d.append(pb);
+    const nn=l.notes.length,wt=items.length===l.items.length?items.length+(items.length===1?' word':' words'):items.length+' of '+l.items.length;
+    const sm=el('summary','',l.title);sm.append(el('span','cnt',(items.length?wt:'')+(items.length&&nn?' · ':'')+(nn?nn+(nn>1?' notes':' note'):'')));d.append(sm);
+    if(items.length){const pb=el('button','sec','▶ Play these ('+items.length+')');pb.style.margin='10px 0 0';pb.onclick=()=>run(items);d.append(pb)}
+    if(nn&&(!items.length||items[0]===l.items[0]))l.notes.forEach(n=>d.append(noteCard(n)));
     items.forEach(it=>d.append(row(it,false)));L.append(d)});
   const N=$('notes');N.innerHTML='';let last='';
   if(!notes.length)N.append(el('p','note','No notes yet. Add your first word above.'));

@@ -57,3 +57,24 @@ FILES
   Tick 'Say: French / বাংলা / English' above the play buttons. Order: French, then Bangla, then English.
   Uses the phone's voices. Bangla needs a Bangla voice installed on the phone (Android: Settings >
   Text-to-speech > Google > Install voice data > Bangla). Spoken meanings usually stop when the screen locks.
+
+8) GRAMMAR / STUDY NOTES (not words)
+  Add a "notes" list to any lesson file, next to (or instead of) "items":
+  {
+    "id": 7,
+    "title": "Lesson 7 - Grammar: etre",
+    "notes": [
+      {
+        "title": "Etre = to be",
+        "bn": "বাংলা ব্যাখ্যা (new line = \\n)",
+        "en": "English explanation",
+        "examples": [
+          { "fr": "Je suis etudiant.", "bn": "আমি ছাত্র।", "en": "I am a student." }
+        ]
+      }
+    ],
+    "items": [ ...words, optional... ]
+  }
+  - title, bn, en, examples are all optional. Each example has a play button (French voice).
+  - Notes show at the top of their lesson. They are NOT included in Play all or word counts.
+  - A lesson can have only notes (no "items").
